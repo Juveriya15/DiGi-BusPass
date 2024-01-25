@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-
+import busRoute from "./BusRoute.json"
 
 function GetPass() {
   
@@ -59,9 +59,18 @@ function GetPass() {
       toast.error("Please fillup all input field");
     }
   };
+
+
   const pre = () => {
     setFormNo(formNo - 1);
   };
+
+  const [destination,setDestination]=useState('');
+  const handleDestination=(e)=>{
+    console.log(destination);
+    const getdestinationId=e.target.value;
+    setDestination(getdestinationId);
+  }
 
   const key_id = "rzp_test_gm6wW5pGrWRFjz";
 
@@ -110,7 +119,7 @@ function GetPass() {
         name: "Non-profit foundation",
         description: "Donation",
         image: "https://example.com/your_logo",
-        order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+        order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step     
         callback_url: "http://localhost:8000/api/v1/payment/paymentverification",
         prefill: {
           name: "Rushikesh Tonape",
@@ -125,6 +134,16 @@ function GetPass() {
         },
       };
 
+      
+      //handler: async (response) => {
+        //   try {
+        //     const verifyUrl = "http://localhost:8000/api/v1/payment/paymentverification";
+        //     const { data } = await axios.post(verifyUrl, response);
+        //     console.log(data);
+        //   } catch (error) {
+        //     console.log(error);
+        //   }
+        // },   
       
   
     const razorpay = new window.Razorpay(options);
@@ -414,18 +433,13 @@ function GetPass() {
                       bus Destination
                     </label>
                     <div className="mt-2">
-                      <select
-                        id="busDestination"
-                        name="busDestination"
-                        value={busDestination}
-                        onChange={onInputChange}
-                        autoComplete="busDestination-name"
-                        className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      >
-                        <option>First Year</option>
-                        <option>Second Year</option>
-                        <option>Third Year</option>
-                        <option>Final Year</option>
+                    <select name="destination" onChange={(e)=>(handleDestination(e))} className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        <option value="">Select Destination</option>
+                        {
+                          busRoute.map((getdestination,index)=>(
+                            <option value={getdestination.destination_id} key={index}>{getdestination.destination_name} </option>
+                          ))
+                        }
                       </select>
                     </div>
                   </div>
@@ -470,18 +484,13 @@ function GetPass() {
                       bus Destination
                     </label>
                     <div className="mt-2">
-                      <select
-                        id="busDestination"
-                        name="busDestination"
-                        value={busDestination}
-                        onChange={onInputChange}
-                        autoComplete="busDestination-name"
-                        className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      >
-                        <option>First Year</option>
-                        <option>Second Year</option>
-                        <option>Third Year</option>
-                        <option>Final Year</option>
+                    <select name="destination" onChange={(e)=>(handleDestination(e))} className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        <option value="">Select Destination</option>
+                        {
+                          busRoute.map((getdestination,index)=>(
+                            <option value={getdestination.destination_id} key={index}>{getdestination.destination_name} </option>
+                          ))
+                        }
                       </select>
                     </div>
                   </div>
@@ -517,8 +526,6 @@ function GetPass() {
                 <p className="mt-1 text-sm leading-6 text-gray-600">
                   Summary of the Details
                 </p>
-
-                
 
               </div>
             </div>

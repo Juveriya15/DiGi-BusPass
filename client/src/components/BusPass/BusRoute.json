@@ -1,0 +1,188 @@
+ [
+   
+     {"destination_id":"01","destination_name":"Shedshal"},
+     {"destination_id":"02","destination_name":"Ganeshwadi"},
+     {"destination_id":"03","destination_name":"Kawtheguland"},
+     {"destination_id":"04","destination_name":"Gauravad"},
+     {"destination_id":"05","destination_name":"Aurwad"},
+     {"destination_id":"06","destination_name":" Nrisimhwadi"},
+     {"destination_id":"07","destination_name":"Kurundwad"},
+     {"destination_id":"08","destination_name":"Terwad"},
+     {"destination_id":"09","destination_name":"Herwad"},
+     {"destination_id":"10","destination_name":"A. Lat"},
+     {"destination_id":"11","destination_name":"Shirdwad"},
+
+     
+     {"destination_id":"12","destination_name":"Khidrapur"},
+     {"destination_id":"13","destination_name":"Rajapurwadi"},
+     {"destination_id":"14","destination_name":"Takliwadi"},
+     {"destination_id":"15","destination_name":"Sainik Takli"},
+     {"destination_id":"16","destination_name":"Akiwat"},
+     {"destination_id":"17","destination_name":"Majrewadi"},
+     {"destination_id":"18","destination_name":"Kurundwad"},
+     {"destination_id":"19","destination_name":"Shirdhon"},
+     {"destination_id":"20","destination_name":"Takwade"},
+
+
+     {"destination_id":"21","destination_name":"Sulkood "},
+     {"destination_id":"22","destination_name":"K. Sangaon"},
+     {"destination_id":"23","destination_name":"Silver Zone"},
+     {"destination_id":"24","destination_name":" Hoopri "},
+     {"destination_id":"25","destination_name":"Rendal"},
+     {"destination_id":"26","destination_name":"Rangoli"},
+
+
+     {"destination_id":"27","destination_name":"Unchgaon"},
+     {"destination_id":"28","destination_name":"Maner Mala "},
+     {"destination_id":"29","destination_name":"Mudshingi"},
+     {"destination_id":"30","destination_name":"Abhishek Mill"},
+     {"destination_id":"31","destination_name":"Sangwade Phata"},
+     {"destination_id":"32","destination_name":"Pattankodoli"},
+     {"destination_id":"33","destination_name":"Ingli"},
+     {"destination_id":"34","destination_name":"Rui"},
+     {"destination_id":"35","destination_name":"Kabanur"},
+     {"destination_id":"36","destination_name":"ASC College"},
+
+  
+     {"destination_id":"37","destination_name":" Kagal"},
+     {"destination_id":"38","destination_name":"Mauje Sangav"},
+     {"destination_id":"39","destination_name":"K. Sangaon"},
+     {"destination_id":"40","destination_name":"Randivewadi"},
+     {"destination_id":"41","destination_name":" Yalgud"},
+
+     
+
+     {"destination_id":"42","destination_name":"Kalamba"},
+     {"destination_id":"43","destination_name":"Saneguruji Vasahat"},
+     {"destination_id":"44","destination_name":"Sambhajinagar"},
+     {"destination_id":"45","destination_name":"Jawaharnagar"},
+     {"destination_id":"46","destination_name":"SSC Board"},
+     {"destination_id":"47","destination_name":"Sciber Chowk "},
+     {"destination_id":"48","destination_name":"Rajarampuri"},
+     {"destination_id":"49","destination_name":"Halondi "},
+     {"destination_id":"50","destination_name":"Herle"},
+     {"destination_id":"51","destination_name":"Chokak"},
+     {"destination_id":"52","destination_name":"Mangaon"},
+
+     
+
+     {"destination_id":"53","destination_name":"Gangavesh"},
+     {"destination_id":"54","destination_name":" Gokul Hotel"},
+     {"destination_id":"55","destination_name":"Panchshil Hotel"},
+     {"destination_id":"56","destination_name":"Ruiker Colony"},
+     {"destination_id":"57","destination_name":"Mukt Sainik "},
+     {"destination_id":"58","destination_name":"Market Yard"},
+     {"destination_id":"59","destination_name":"Tawde Hotel"},
+     {"destination_id":"60","destination_name":"Shiroli Phata"},
+     {"destination_id":"61","destination_name":"Herle"},
+     {"destination_id":"62","destination_name":"Mangaon Phata"},
+     {"destination_id":"63","destination_name":"Sajani"},
+     {"destination_id":"64","destination_name":"Kabanur"},
+
+   
+     {"destination_id":"65","destination_name":"Kodoli "},
+     {"destination_id":"66","destination_name":"Pargaon"},
+     {"destination_id":"67","destination_name":"Chavre Phata"},
+     {"destination_id":"68","destination_name":"Vathar"},
+     {"destination_id":"69","destination_name":"Vadgaon"},
+     {"destination_id":"70","destination_name":" Narande Phata"},
+     {"destination_id":"71","destination_name":"Chavanwadi "},
+     {"destination_id":"72","destination_name":"Alte"},
+     {"destination_id":"73","destination_name":"Hatkanangle"},
+     {"destination_id":"74","destination_name":"Ganganagar"},
+     {"destination_id":"75","destination_name":"Deccan"},
+
+      
+     {"destination_id":"76","destination_name":"Udgaon"},
+     {"destination_id":"77","destination_name":" Jaisingpur Stand"},
+     {"destination_id":"78","destination_name":"Jaisingpur Court"},
+     {"destination_id":"79","destination_name":"Manisha Automobile"},
+     {"destination_id":"80","destination_name":"Sambhajipur"},
+     {"destination_id":"81","destination_name":"Sangamnagar"},
+     {"destination_id":"82","destination_name":"Sangli Naka"},
+     {"destination_id":"83","destination_name":"Big Bazaar"},
+
+      
+     {"destination_id":"84","destination_name":"Malgaon"},
+     {"destination_id":"85","destination_name":"Ganesh Colony"},
+     {"destination_id":"86","destination_name":"Subhash Nagar"},
+     {"destination_id":"87","destination_name":"Gadve Pump"},
+     {"destination_id":"88","destination_name":"Dindives"},
+     {"destination_id":"89","destination_name":"Vakhar Bhag"},
+     {"destination_id":"90","destination_name":"Miraj Market"},
+     {"destination_id":"91","destination_name":"Cancer Hospital"},
+     {"destination_id":"92","destination_name":"Honda Showroom"},
+     {"destination_id":"93","destination_name":"Walchand College"},
+     {"destination_id":"94","destination_name":"100 Foot Road"},
+     {"destination_id":"95","destination_name":"Dhamani"},
+
+     
+     {"destination_id":"96","destination_name":"Kawalapur"},
+     {"destination_id":"97","destination_name":" Budhgaon "},
+     {"destination_id":"98","destination_name":"Madhavnagar"},
+     {"destination_id":"99","destination_name":"Sakhar Karkhana"},
+     {"destination_id":"100","destination_name":"Chintamani Nagar Pool"},
+     {"destination_id":"101","destination_name":"Bypass Road"},
+     {"destination_id":"102","destination_name":"TVS Showroom"},
+     {"destination_id":"103","destination_name":"College Corner"},
+     {"destination_id":"104","destination_name":"Amrai"},
+     {"destination_id":"105","destination_name":"City Post"},
+     {"destination_id":"106","destination_name":"Shivaji Mandai"},
+     {"destination_id":"107","destination_name":"Sangli Stand"},
+     {"destination_id":"108","destination_name":"Kabade Hospital"},
+    
+
+      
+     {"destination_id":"109","destination_name":"Ramkrishna Nagar Kupwad"},
+     {"destination_id":"110","destination_name":"Amba Chowk"},
+     {"destination_id":"111","destination_name":"Chinmay Park"},
+     {"destination_id":"112","destination_name":"Sachin Jewelers"},
+     {"destination_id":"113","destination_name":"Laxmi Mandir"},
+     {"destination_id":"114","destination_name":"Lovely Circle"},
+     {"destination_id":"115","destination_name":"Bata Showroom"},
+     {"destination_id":"116","destination_name":"Dhamani Phata "},
+     {"destination_id":"117","destination_name":"D Mart"},
+     {"destination_id":"118","destination_name":"Kolhapur Road"},
+
+     
+     {"destination_id":"119","destination_name":"Kupwad"},
+     {"destination_id":"120","destination_name":"Sut Girani"},
+     {"destination_id":"121","destination_name":"Laxmi Mandir"},
+     {"destination_id":"122","destination_name":"Bata Showroom"},
+     {"destination_id":"123","destination_name":"Sangli Civil"},
+     {"destination_id":"124","destination_name":"Chipri Phata"},
+
+      
+     {"destination_id":"125","destination_name":"Mhaisaal Boundry"},
+     {"destination_id":"126","destination_name":"Mhaisaal"},
+     {"destination_id":"127","destination_name":" Vaddi"},
+     {"destination_id":"128","destination_name":"Nadives Naka"},
+     {"destination_id":"129","destination_name":"Miraj Stand"},
+     {"destination_id":"130","destination_name":"Sphurti Chowk"},
+     {"destination_id":"131","destination_name":"Limaye Mala"},
+     {"destination_id":"132","destination_name":"Dhamani"},
+     {"destination_id":"133","destination_name":"Ankli"},
+
+  
+     {"destination_id":"134","destination_name":"   Mission Hospital"},
+     {"destination_id":"135","destination_name":"Vijayanagar"},
+     {"destination_id":"136","destination_name":"Vishrambagh"},
+     {"destination_id":"137","destination_name":" Pushkaraj Chowk"},
+     {"destination_id":"138","destination_name":"Civil Hospital"},
+     {"destination_id":"139","destination_name":"Aakashvani"},
+     {"destination_id":"140","destination_name":"Bansi Tire"},
+     {"destination_id":"141","destination_name":"Tata Showroom"},
+
+   
+     {"destination_id":"142","destination_name":"Ghalwad "},
+     {"destination_id":"143","destination_name":"Arjunwad"},
+     {"destination_id":"144","destination_name":"Shirol"},
+     {"destination_id":"145","destination_name":"Dutt Karkhana"},
+     {"destination_id":"146","destination_name":"J.J. Magdum College Stop"},
+     {"destination_id":"147","destination_name":"Nandini Naka"},
+     {"destination_id":"148","destination_name":"Nandini"},
+     {"destination_id":"149","destination_name":"Haroli"}
+
+
+    
+]
