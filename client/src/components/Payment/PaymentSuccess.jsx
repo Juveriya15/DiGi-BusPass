@@ -1,7 +1,7 @@
-import react from "react";
+import React from "react";
 import {useSearchParams} from "react-router-dom";
 
-function PaymentSuccess() {
+const PaymentSuccess=()=> {
 
     const searchQuery = useSearchParams()[0];
     const referenceNumber = searchQuery.get("reference");

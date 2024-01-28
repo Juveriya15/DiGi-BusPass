@@ -95,21 +95,21 @@ function GetPass() {
       
 
       
-      const signatureResponse = await axios.post(
-        "http://localhost:8000/api/v1/payment/paymentverification",
-        {
-          razorpay_payment_id: order.id,
-          razorpay_order_id: order.razorpay_order_id,
-          razorpay_signature: order.razorpay_signature,
-        },
-        {
-          headers: {
-              Authorization: `${token}`,
-              
-          },
-        },
-      );
-      console.log(signatureResponse.data); 
+      // const signatureResponse = await axios.post(
+      //   "http://localhost:8000/api/v1/payment/paymentverification",
+      //   {
+      //     razorpay_payment_id: order.id,
+      //     razorpay_order_id: order.razorpay_order_id,
+      //     razorpay_signature: order.razorpay_signature,
+      //   },
+      //   {
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       Authorization: `${token}`,
+      //     },
+      //   },
+      // );
+      // console.log(signatureResponse.data); 
    
       
       const options = {
@@ -120,14 +120,29 @@ function GetPass() {
         description: "Donation",
         image: "https://example.com/your_logo",
         order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step     
-        callback_url: "http://localhost:8000/api/v1/payment/paymentverification",
-        prefill: {
-          name: "Rushikesh Tonape",
-          email: "rushikeshtonape143@gmail.com",
-          contact: "9970703921",
-        },
-        notes: {
-          address: "Razorpay Corporate Office",
+        // callback_url: "http://localhost:8000/api/v1/payment/paymentverification",
+        // prefill: {
+        //   name: "Rushikesh Tonape",
+        //   email: "rushikeshtonape143@gmail.com",
+        //   contact: "9970703921",
+        // },
+        // notes: {
+        //   address: "Razorpay Corporate Office",
+        // },
+        handler: async (response) => {
+          try {
+            const verifyUrl = "http://localhost:8000/api/v1/payment/paymentverification";
+            const { data } = await axios.post(verifyUrl, response,
+              {
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `${token}`,
+                },
+              });
+            console.log(data);
+          } catch (error) {
+            console.log(error);
+          }
         },
         theme: {
           color: "#2b0318",
@@ -135,15 +150,15 @@ function GetPass() {
       };
 
       
-      //handler: async (response) => {
-        //   try {
-        //     const verifyUrl = "http://localhost:8000/api/v1/payment/paymentverification";
-        //     const { data } = await axios.post(verifyUrl, response);
-        //     console.log(data);
-        //   } catch (error) {
-        //     console.log(error);
-        //   }
-        // },   
+      // handler: async (response) => {
+      //     try {
+      //       const verifyUrl = "http://localhost:8000/api/v1/payment/paymentverification";
+      //       const { data } = await axios.post(verifyUrl, response);
+      //       console.log(data);
+      //     } catch (error) {
+      //       console.log(error);
+      //     }
+      //   },   
       
   
     const razorpay = new window.Razorpay(options);

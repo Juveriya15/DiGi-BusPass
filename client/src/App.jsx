@@ -11,7 +11,7 @@ import Payment from './components/Payment/Payment';
 import BusPass from './components/BusPass/BussPass';
 import GetPass from './components/BusPass/GetPass';
 import NotFound from './components/Home/NotFound';
-import PaymentSuccess from './components/Payment/PaymentSuccess';
+import PaymentSuccess from './components/Payment/PaymentSuccess.jsx';
 
 // import Profile from '../src/components/BusPass/pages/info';
 // import Plan from '../src/components/BusPass/pages/plan';
@@ -46,7 +46,7 @@ function App() {
         <Route path="/login" element={<Login/>} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={isUserAuthenticated() ? <Dashboard /> : <Navigate to="/login" />} />
-         <Route path="/payment" element={isUserAuthenticated() ? <Payment /> : <Navigate to="/login" />} />
+         {/* <Route path="/payment" element={isUserAuthenticated() ? <Payment /> : <Navigate to="/login" />} /> */}
          <Route path="/buspass" element={isUserAuthenticated() ? <BusPass /> : <Navigate to="/login" />} />
           <Route path="/buspass/getpass" element={isUserAuthenticated() ? <GetPass /> : <Navigate to="/login" />} />
           <Route path="/payment/paymentverification" element={isUserAuthenticated() ? <PaymentSuccess/> : <Navigate to="/login" />} />
@@ -56,6 +56,7 @@ function App() {
          <Route path="/buspass/summary" element={isUserAuthenticated() ? <Summary /> : <Navigate to="/login" />} />
          <Route path="/buspass/thanks" element={isUserAuthenticated() ? <Thanks /> : <Navigate to="/login" />} /> */}
 
+        <Route path="/paymentsuccess" element={isUserAuthenticated() ? <PaymentSuccess/> : <Navigate to="/login" />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
