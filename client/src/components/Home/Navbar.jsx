@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -55,7 +55,7 @@ const Navbar = () => {
                 <li>
                     <Link
                     to="/"
-                    className="text-yellow-400 hover:text-gray-100 dark:text-gray-100 dark:hover:text-gray-300"
+                    className="text-yellow-400 hover:text-white dark:text-gray-100 dark:hover:text-gray-300"
                     >
                     Home
                     </Link>
@@ -67,7 +67,7 @@ const Navbar = () => {
                   <li>
                     <Link
                     to="/dashboard"
-                    className="text-yellow-400 hover:text-gray-100 dark:text-gray-100 dark:hover:text-gray-300"
+                    className="text-yellow-400 hover:text-white dark:text-gray-100 dark:hover:text-gray-300"
                     >
                     Dashboard
                     </Link>
@@ -75,7 +75,7 @@ const Navbar = () => {
                 <li>
                     <Link
                     to="/buspass/getpass"
-                    className="text-yellow-400 hover:text-gray-100 dark:text-gray-100 dark:hover:text-gray-300"
+                    className="text-yellow-400 hover:text-white dark:text-gray-100 dark:hover:text-gray-300"
                     >
                     Buss Pass
                     </Link>
@@ -83,7 +83,7 @@ const Navbar = () => {
                   <li>
                     <Link
                     to="/logout"
-                    className="text-yellow-400 hover:text-gray-100 dark:text-gray-100 dark:hover:text-gray-300"
+                    className="text-yellow-400 hover:text-white dark:text-gray-100 dark:hover:text-gray-300"
                     >
                     Logout
                     </Link>
@@ -95,7 +95,7 @@ const Navbar = () => {
                    <li>
                     <Link
                     to="/signup"
-                    className="text-yellow-400 hover:text-gray-100 dark:text-gray-100 dark:hover:text-gray-300"
+                    className="text-yellow-400 hover:text-white dark:text-gray-100 dark:hover:text-gray-300"
                     >
                     Signup
                     </Link>
@@ -103,7 +103,7 @@ const Navbar = () => {
                   <li>
                     <Link
                     to="/login"
-                    className="text-yellow-400 hover:text-gray-100 dark:text-gray-100 dark:hover:text-gray-300"
+                    className="text-yellow-400 hover:text-white dark:text-gray-100 dark:hover:text-gray-300"
                     >
                     Login
                     </Link>

@@ -1,11 +1,11 @@
  [
    
-     {"destination_id":"01","destination_name":"Shedshal"},
-     {"destination_id":"02","destination_name":"Ganeshwadi"},
-     {"destination_id":"03","destination_name":"Kawtheguland"},
-     {"destination_id":"04","destination_name":"Gauravad"},
-     {"destination_id":"05","destination_name":"Aurwad"},
-     {"destination_id":"06","destination_name":" Nrisimhwadi"},
+     {"destination_id":"01","destination_name":"Shedshal" , "destination_amount": "2000"},
+     {"destination_id":"02","destination_name":"Ganeshwadi" ,"destination_amount": "21000"},
+     {"destination_id":"03","destination_name":"Kawtheguland" ,"destination_amount": "22000"},
+     {"destination_id":"04","destination_name":"Gauravad","destination_amount": "12000"},
+     {"destination_id":"05","destination_name":"Aurwad","destination_amount": "11000"},
+     {"destination_id":"06","destination_name":" Nrisimhwadi","destination_amount": "5000"},
      {"destination_id":"07","destination_name":"Kurundwad"},
      {"destination_id":"08","destination_name":"Terwad"},
      {"destination_id":"09","destination_name":"Herwad"},

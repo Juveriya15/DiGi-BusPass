@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 // import Service from "./Service";
 import Footer from "./Footer";
 
@@ -11,7 +11,7 @@ const Home = () => {
           <div class="grid max-w-[1550px] px-8 py-8 mx-auto lg:gap-10 xl:gap-0 lg:py-16 lg:grid-cols-12">
             <div class="p-6 place-self-center lg:col-span-7">
               <h1 class="max-w-xl mb-6 text-5xl text-dark font-medium xl:text-5xl text-white">
-                <sapn class="text-[#fde047]">Digital BusPass </sapn>Application
+                <sapn class="text-yellow-400">Digital BusPass </sapn>Application
                 and Renewal
               </h1>
               <p class="max-w-2xl mb-3 text-dark md:text-lg lg:text-xl text-white">
@@ -26,7 +26,7 @@ const Home = () => {
                 <a
                   href="/signup"
                 >
-                    <button class="hover:bg-transparent bg-white text-light font-semibold hover:text-dark py-2 px-4 border border-light-500 rounded">
+                    <button class="hover:bg-yellow-400 bg-white text-light font-semibold hover:text-dark py-2 px-4 border border-light-500 rounded">
                   Get Started
                 </button>
                 </a>

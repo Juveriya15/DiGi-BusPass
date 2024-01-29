@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import busRoute from "./BusRoute.json"
+import busRoute from "./BusRoute.json";
 
 function GetPass() {
-  
- 
   const formArray = [1, 2, 3, 4];
   const [formNo, setFormNo] = useState(formArray[0]);
 
@@ -15,15 +13,15 @@ function GetPass() {
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
-    year: "First Year",
-    branch: "Computer Sc. & Engineering",
+    year: "",
+    branch: "",
     phno: "",
     address: "",
-    busFrom: "",
+    busFrom: "DKTE Rajwada",
     busDestination: "",
     validDate: "",
-    
-    studentId: ""
+
+    studentId: "",
   });
 
   const {
@@ -34,13 +32,10 @@ function GetPass() {
     phno,
     address,
     busFrom,
-    busDestination,
+    getdestination,
     validDate,
-    studentId
-
+    studentId,
   } = user;
-
-  
 
   const onInputChange = (e) => {
     setUser({
@@ -49,9 +44,16 @@ function GetPass() {
     });
   };
   const next = () => {
-    if (formNo === 1 && user.firstName && user.lastName && user.phno) {
+    if (
+      formNo === 1 &&
+      user.firstName &&
+      user.lastName &&
+      user.phno &&
+      user.year &&
+      user.branch
+    ) {
       setFormNo(formNo + 1);
-    } else if (formNo === 2) {
+    } else if (formNo === 2 && destination) {
       setFormNo(formNo + 1);
     } else if (formNo === 3) {
       setFormNo(formNo + 1);
@@ -60,41 +62,48 @@ function GetPass() {
     }
   };
 
-
   const pre = () => {
     setFormNo(formNo - 1);
   };
 
-  const [destination,setDestination]=useState('');
-  const handleDestination=(e)=>{
+  const [destination, setDestination] = useState("");
+  const [totalAmount, setTotalAmount] = useState(0);
+  const handleDestination = (e) => {
     console.log(destination);
-    const getdestinationId=e.target.value;
+    const getdestinationId = e.target.value;
     setDestination(getdestinationId);
-  }
+
+    const selected = busRoute.find(
+      (item) => item.destination_name === getdestinationId
+    );
+
+    if (selected) {
+      // Update the selected item and total amount
+
+      setTotalAmount(selected.destination_amount);
+    }
+  };
 
   const key_id = "rzp_test_gm6wW5pGrWRFjz";
 
   const handleDonate = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     setLoading(true); // Set loading to true when starting the request
-    try{  
-      console.log(token)
-      const response = await axios.post("http://localhost:8000/api/v1/payment/checkout", 
-      {amount:500}
-      ,{
+    try {
+      console.log(token);
+      const response = await axios.post(
+        "http://localhost:8000/api/v1/payment/checkout",
+        { amount: totalAmount },
+        {
           headers: {
-              authorization: `${token}`,
-              
+            authorization: `${token}`,
           },
-      }
+        }
       );
-     
 
       const order = response.data.order;
       console.log(order);
-      
 
-      
       // const signatureResponse = await axios.post(
       //   "http://localhost:8000/api/v1/payment/paymentverification",
       //   {
@@ -109,9 +118,8 @@ function GetPass() {
       //     },
       //   },
       // );
-      // console.log(signatureResponse.data); 
-   
-      
+      // console.log(signatureResponse.data);
+
       const options = {
         key: key_id, // Enter the Key ID generated from the Dashboard
         amount: order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
@@ -119,7 +127,7 @@ function GetPass() {
         name: "Non-profit foundation",
         description: "Donation",
         image: "https://example.com/your_logo",
-        order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step     
+        order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step
         // callback_url: "http://localhost:8000/api/v1/payment/paymentverification",
         // prefill: {
         //   name: "Rushikesh Tonape",
@@ -131,14 +139,14 @@ function GetPass() {
         // },
         handler: async (response) => {
           try {
-            const verifyUrl = "http://localhost:8000/api/v1/payment/paymentverification";
-            const { data } = await axios.post(verifyUrl, response,
-              {
-                headers: {
-                  "Content-Type": "application/json",
-                  Authorization: `${token}`,
-                },
-              });
+            const verifyUrl =
+              "http://localhost:8000/api/v1/payment/paymentverification";
+            const { data } = await axios.post(verifyUrl, response, {
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `${token}`,
+              },
+            });
             console.log(data);
           } catch (error) {
             console.log(error);
@@ -149,7 +157,6 @@ function GetPass() {
         },
       };
 
-      
       // handler: async (response) => {
       //     try {
       //       const verifyUrl = "http://localhost:8000/api/v1/payment/paymentverification";
@@ -158,35 +165,31 @@ function GetPass() {
       //     } catch (error) {
       //       console.log(error);
       //     }
-      //   },   
-      
-  
-    const razorpay = new window.Razorpay(options);
-  
-    razorpay.on('payment.success', (response) => {
-      // Payment successful logic
-      console.log('Payment successful:', response);
-      alert('Payment successful');
-    });
-    
-    razorpay.on('payment.error', (error) => {
-    // Payment failed or canceled
-    console.error('Payment failed or canceled:', error);
-    alert('Payment failed or canceled');
-  });
-  
-  console.log('Before razorpay.open()');
-  razorpay.open();
-  console.log('After razorpay.open()');
-  }
-  catch(error){
-    console.log(error);
-  }
-  finally{
-    setLoading(false); // Whether the request succeeded or not, set loading to false
-  }
-  
-};
+      //   },
+
+      const razorpay = new window.Razorpay(options);
+
+      razorpay.on("payment.success", (response) => {
+        // Payment successful logic
+        console.log("Payment successful:", response);
+        alert("Payment successful");
+      });
+
+      razorpay.on("payment.error", (error) => {
+        // Payment failed or canceled
+        console.error("Payment failed or canceled:", error);
+        alert("Payment failed or canceled");
+      });
+
+      console.log("Before razorpay.open()");
+      razorpay.open();
+      console.log("After razorpay.open()");
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false); // Whether the request succeeded or not, set loading to false
+    }
+  };
 
   const finalSubmit = async (e) => {
     e.preventDefault();
@@ -210,19 +213,20 @@ function GetPass() {
       setLoading(false);
     }
   };
+
   return (
-    <div className="w-screen h-screen bg-slate-300 flex justify-center items-center">
+    <div className="w-screen h-screen bg-slate-100 flex justify-center items-center">
       <ToastContainer />
       <div className="card w-[670px] rounded-md shadow-md bg-white p-5">
         <div className="flex justify-center items-center">
           {formArray.map((v, i) => (
             <>
-              <div 
+              <div
                 className={`w-[35px] my-3 text-white rounded-full ${
                   formNo - 1 === i ||
                   formNo - 1 === i + 1 ||
                   formNo === formArray.length
-                    ? "bg-blue-500"
+                    ? "bg-yellow-400"
                     : "bg-slate-400"
                 } h-[35px] flex justify-center items-center`}
               >
@@ -232,7 +236,7 @@ function GetPass() {
                 <div
                   className={`w-[85px] h-[2px] ${
                     formNo === i + 2 || formNo === formArray.length
-                      ? "bg-blue-500"
+                      ? "bg-yellow-400"
                       : "bg-slate-400"
                   }`}
                 ></div>
@@ -308,6 +312,7 @@ function GetPass() {
                         autoComplete="year-name"
                         className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       >
+                        <option>--Select Year--</option>
                         <option>First Year</option>
                         <option>Second Year</option>
                         <option>Third Year</option>
@@ -332,6 +337,7 @@ function GetPass() {
                         autoComplete="branch-name"
                         className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       >
+                        <option>--Select Branch--</option>
                         <option>Computer Sc. & Engineering</option>
                         <option>Civil Engineering</option>
                         <option>Computer Sc. & Engineering AI and ML</option>
@@ -399,7 +405,7 @@ function GetPass() {
             <div className="mt-6 flex items-center justify-end gap-x-6">
               <button
                 onClick={next}
-                className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-md bg-yellow-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Next
               </button>
@@ -424,7 +430,7 @@ function GetPass() {
                       htmlFor="busFrom"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
-                      bus From
+                      Bus From
                     </label>
                     <div className="mt-2">
                       <select
@@ -445,18 +451,35 @@ function GetPass() {
                       htmlFor="busDestination"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
-                      bus Destination
+                      Bus Destination
                     </label>
                     <div className="mt-2">
-                    <select name="destination" onChange={(e)=>(handleDestination(e))} className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                      <select
+                        name="destination"
+                        onChange={(e) => handleDestination(e)}
+                        className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      >
                         <option value="">Select Destination</option>
-                        {
-                          busRoute.map((getdestination,index)=>(
-                            <option value={getdestination.destination_id} key={index}>{getdestination.destination_name} </option>
-                          ))
-                        }
+                        {busRoute.map((getdestination, index) => (
+                          <option
+                            value={getdestination.destination_name}
+                            key={index}
+                          >
+                            {getdestination.destination_name}{" "}
+                          </option>
+                        ))}
                       </select>
+
+                      {/* <select value={selectedItem.destination_name} onChange={handleDropdownChange}>
+        {items.map((item, index) => (
+          <option key={index} value={item.destination_name}>
+            {item.destination_name}
+          </option>
+        ))}
+      </select> */}
                     </div>
+
+                    <p>Total Amount: {totalAmount}</p>
                   </div>
                 </div>
               </div>
@@ -465,13 +488,13 @@ function GetPass() {
             <div className="mt-6 flex items-center justify-end gap-x-6">
               <button
                 onClick={pre}
-                className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-md bg-yellow-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Previous
               </button>
               <button
                 onClick={next}
-                className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-md bg-yellow-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Next
               </button>
@@ -482,50 +505,64 @@ function GetPass() {
         {formNo === 3 && (
           <div>
             <div className="space-y-12">
-              <div className="border-b border-gray-900/10 pb-12">
-                <h2 className="text-base font-semibold leading-7 text-gray-900">
-                  Payment Information
-                </h2>
-                <p className="mt-1 text-sm leading-6 text-gray-600">
-                  Use a permanent address where you can receive mail.
+              <div className="px-4 sm:px-0">
+                <h3 className="text-base font-semibold leading-7 text-gray-900">
+                  Applicant Information
+                </h3>
+                <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
+                  Personal details and application.
                 </p>
-
-                <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                  <div className="sm:col-span-3">
-                    <label
-                      htmlFor="busDestination"
-                      className="block text-sm font-medium leading-6 text-gray-900"
-                    >
-                      bus Destination
-                    </label>
-                    <div className="mt-2">
-                    <select name="destination" onChange={(e)=>(handleDestination(e))} className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                        <option value="">Select Destination</option>
-                        {
-                          busRoute.map((getdestination,index)=>(
-                            <option value={getdestination.destination_id} key={index}>{getdestination.destination_name} </option>
-                          ))
-                        }
-                      </select>
-                    </div>
+              </div>
+              <div className="mt-6 border-t border-gray-100">
+                <dl className="divide-y divide-gray-100">
+                  <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt className="text-sm font-medium leading-6 text-gray-900">
+                      Full name
+                    </dt>
+                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      {firstName} {lastName}
+                    </dd>
                   </div>
-                </div>
+                  <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt className="text-sm font-medium leading-6 text-gray-900">
+                      Year & Branch
+                    </dt>
+                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      {year}, {branch}
+                    </dd>
+                  </div>
+                  <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt className="text-sm font-medium leading-6 text-gray-900">
+                      Bus Route
+                    </dt>
+                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      {busFrom} to {destination}
+                    </dd>
+                  </div>
+                  <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt className="text-sm font-medium leading-6 text-gray-900">
+                      Total Amount
+                    </dt>
+                    <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                      ₹ {totalAmount}
+                    </dd>
+                  </div>
+                </dl>
               </div>
             </div>
 
             <div className="mt-6 flex items-center justify-end gap-x-6">
               <button
                 onClick={pre}
-                className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-md bg-yellow-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Previous
               </button>
-              
               <button
                 onClick={next}
-                className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-md bg-yellow-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Continue Payment
+                Next
               </button>
             </div>
           </div>
@@ -536,27 +573,26 @@ function GetPass() {
             <div className="space-y-12">
               <div className="border-b border-gray-900/10 pb-12">
                 <h2 className="text-base font-semibold leading-7 text-gray-900">
-                  Summary
+                  Payment
                 </h2>
                 <p className="mt-1 text-sm leading-6 text-gray-600">
-                  Summary of the Details
+                  Payment Details
                 </p>
-
               </div>
             </div>
 
             <div className="mt-6 flex items-center justify-end gap-x-6">
               <button
                 onClick={pre}
-                className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-md bg-yellow-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Previous
               </button>
               <button
                 onClick={handleDonate}
-                className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-md bg-yellow-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Submit
+                Pay
               </button>
             </div>
           </div>
