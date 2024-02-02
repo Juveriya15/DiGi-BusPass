@@ -104,22 +104,6 @@ function GetPass() {
       const order = response.data.order;
       console.log(order);
 
-      // const signatureResponse = await axios.post(
-      //   "http://localhost:8000/api/v1/payment/paymentverification",
-      //   {
-      //     razorpay_payment_id: order.id,
-      //     razorpay_order_id: order.razorpay_order_id,
-      //     razorpay_signature: order.razorpay_signature,
-      //   },
-      //   {
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //       Authorization: `${token}`,
-      //     },
-      //   },
-      // );
-      // console.log(signatureResponse.data);
-
       const options = {
         key: key_id, // Enter the Key ID generated from the Dashboard
         amount: order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
@@ -156,16 +140,6 @@ function GetPass() {
           color: "#2b0318",
         },
       };
-
-      // handler: async (response) => {
-      //     try {
-      //       const verifyUrl = "http://localhost:8000/api/v1/payment/paymentverification";
-      //       const { data } = await axios.post(verifyUrl, response);
-      //       console.log(data);
-      //     } catch (error) {
-      //       console.log(error);
-      //     }
-      //   },
 
       const razorpay = new window.Razorpay(options);
 
@@ -469,14 +443,6 @@ function GetPass() {
                           </option>
                         ))}
                       </select>
-
-                      {/* <select value={selectedItem.destination_name} onChange={handleDropdownChange}>
-        {items.map((item, index) => (
-          <option key={index} value={item.destination_name}>
-            {item.destination_name}
-          </option>
-        ))}
-      </select> */}
                     </div>
 
                     <p>Total Amount: {totalAmount}</p>
