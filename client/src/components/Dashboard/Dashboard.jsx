@@ -29,8 +29,7 @@ const Dashboard = () => {
     getStudentDetails();
   }, []);
 
-  console.log("Student Profile",studentDetails.studentProfile);
-  
+  console.log("Student Profile", studentDetails.studentProfile);
 
   return (
     <>
@@ -47,8 +46,7 @@ const Dashboard = () => {
               <h3>Your Email is: {studentDetails.user.email}</h3>
 
               <div className="grid grid-cols-2 gap-6">
-
-                <div className=" ">
+                {/* <div className=" ">
                   <h1>Payment history</h1>
                   {studentDetails &&
                     studentDetails.PaymentDetails &&
@@ -105,7 +103,7 @@ const Dashboard = () => {
                         </>
                       </ul>
                     )}
-                </div>
+                </div> */}
 
                 <div className="">
                   <h1>Bus Pass History</h1>

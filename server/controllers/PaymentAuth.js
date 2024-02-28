@@ -74,9 +74,13 @@ exports.paymentVerification = async (req, res) => {
       PaymentProfile.paymentDone.push(paymentDetails);
       await PaymentProfile.save();
 
-      res.redirect(
-        `http://localhost:5173/paymentsuccess?reference=${razorpay_payment_id}`
-      );
+      // res.redirect(
+      //   `http://localhost:5173/paymentsuccess?reference=${razorpay_payment_id}`
+      // );
+      res.status(200).json({
+        success: true,
+        redirectUrl: `http://localhost:5173/paymentsuccess?reference=${razorpay_payment_id}`,
+      });
     } else {
       return res.status(200).json({
         success: false,

@@ -132,6 +132,14 @@ function GetPass() {
               },
             });
             console.log(data);
+
+            if (data.redirectUrl) {
+              window.location.href = data.redirectUrl;
+            } else {
+              // If no specific redirect URL is provided, you can handle the redirect here
+              // or leave it blank depending on your application's logic.
+              alert("Payment successful");
+            }
           } catch (error) {
             console.log(error);
           }
@@ -146,6 +154,7 @@ function GetPass() {
       razorpay.on("payment.success", (response) => {
         // Payment successful logic
         console.log("Payment successful:", response);
+
         alert("Payment successful");
       });
 
