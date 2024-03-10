@@ -135,6 +135,27 @@ function GetPass() {
 
             if (data.redirectUrl) {
               window.location.href = data.redirectUrl;
+
+              e.preventDefault();
+              setLoading(true); // Set loading to true when starting the request
+              try {
+                const response = await axios.post(
+                  "http://localhost:8000/api/v1/buspass/applyForBusPass",
+                  user,
+                  {
+                    headers: {
+                      "Content-Type": "application/json",
+                      Authorization: `${token}`,
+                    },
+                  }
+                );
+                console.log(response.data);
+                alert("Student Details Updated Successfully");
+              } catch (error) {
+                console.log(error);
+              } finally {
+                setLoading(false);
+              }
             } else {
               // If no specific redirect URL is provided, you can handle the redirect here
               // or leave it blank depending on your application's logic.
@@ -439,10 +460,11 @@ function GetPass() {
                     <div className="mt-2">
                       <select
                         name="destination"
+                        value={destination}
                         onChange={(e) => handleDestination(e)}
                         className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       >
-                        <option value="">Select Destination</option>
+                        <option value={destination}>Select Destination</option>
                         {busRoute.map((getdestination, index) => (
                           <option
                             value={getdestination.destination_name}

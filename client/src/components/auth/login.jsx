@@ -94,11 +94,6 @@ const login = () => {
                 >
                   Password
                 </label>
-                {/* <div className="text-sm">
-                  <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
-                    Forgot password?
-                  </a>
-                </div> */}
               </div>
               <div className="mt-2">
                 <input
@@ -124,16 +119,32 @@ const login = () => {
               </button>
             </div>
           </form>
+          <div className="text-sm">
+            <p className="mt-4 text-center  text-sm text-gray-500">
+              <Link
+                to="/forgot-password"
+                className="font-semibold text-yellow-600 hover:text-yellow-500"
+              >
+                Forgot password?
+              </Link>
+            </p>
+            {/* <a
+                    href="/forgotpassword"
+                    className="font-semibold text-indigo-600 hover:text-indigo-500"
+                  >
+                    Forgot password?
+                  </a> */}
 
-          <p className="mt-10 text-center text-sm text-gray-500">
-            Not a member?{" "}
-            <Link
-              to="/signup"
-              className="font-semibold text-yellow-600 hover:text-yellow-500"
-            >
-              Sign up
-            </Link>
-          </p>
+            <p className="mt-4 text-center text-sm text-gray-500">
+              Not a member?{" "}
+              <Link
+                to="/signup"
+                className="font-semibold text-yellow-600 hover:text-yellow-500"
+              >
+                Sign up
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </>

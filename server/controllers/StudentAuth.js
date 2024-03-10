@@ -10,10 +10,9 @@ const { passwordUpdated } = require("../mail/passwordUpdate");
 const { successfullyRegistered } = require("../mail/successfullyRegistration");
 require("dotenv").config();
 
-
 exports.signup = async (req, res) => {
   try {
-    const { email, password, studentId} = req.body;
+    const { email, password, studentId } = req.body;
     if (!email || !password || !studentId) {
       return res.status(403).send({
         success: false,
@@ -47,50 +46,49 @@ exports.signup = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const profileDetails = await Profile.create({
-      firstName : null,
-      lastName : null,
-      year : null,
-      branch : null,
-      phno : null,
-      busno : null,
-      address : null,
-    })
+      firstName: null,
+      lastName: null,
+      year: null,
+      branch: null,
+      phno: null,
+      busno: null,
+      address: null,
+    });
     const paymentDetails = await Payment.create({
-      amount : null,
+      amount: null,
       studentId: studentId,
-      razorpay_payment_id : null,
-      razorpay_order_id : null,
-      razorpay_signature : null,
-      createdAt : null,
-    })
+      razorpay_payment_id: null,
+      razorpay_order_id: null,
+      razorpay_signature: null,
+      createdAt: null,
+    });
 
     const user = await Student.create({
       email,
       studentId,
       password: hashedPassword,
-      additionalDetails : profileDetails._id,     
-      paymentDoneDetails : paymentDetails._id,
-      accountType:"Student",
+      additionalDetails: profileDetails._id,
+      paymentDoneDetails: paymentDetails._id,
+      accountType: "Student",
     });
 
-    try{
+    try {
       const emailResponse = await mailSender(
-        user.email, `DKTE Society's Textile and Engineering Institute`, 
+        user.email,
+        `DKTE Society's Textile and Engineering Institute`,
         successfullyRegistered(`${user.studentId}`, `${user.accountType}`)
       );
-
-    }catch(err){
-        res.status(200).json({
+    } catch (err) {
+      res.status(200).json({
         success: true,
         message: "Student Registered Successfully",
       });
     }
-  
+
     return res.status(200).json({
       success: true,
       message: "Student Registered Successfully",
     });
-
   } catch (error) {
     console.log(error);
     return res.status(500).json({
@@ -141,7 +139,6 @@ exports.login = async (req, res) => {
       user.password = undefined;
 
       // save tokens in to schema for logout functionality
-      
 
       const options = {
         expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
@@ -154,22 +151,18 @@ exports.login = async (req, res) => {
         user,
         message: "Student login successfully",
       });
-
-
-
-    } 
-    else {
+    } else {
       return res.status(400).json({
         success: false,
         message: "Incorrect Password",
       });
     }
   } catch (error) {
-        console.log(error.message);
-        return res.status(500).json({
-            success : false,
-            "message" : "Internal Server Error"
-        })
+    console.log(error.message);
+    return res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+    });
   }
 };
 
@@ -196,7 +189,6 @@ exports.sendotp = async (req, res) => {
       lowerCaseAlphabets: false,
       specialChars: false,
     });
-    const result = await OTP.findOne({ otp: otp });
     console.log("Result is Generate OTP Func");
     console.log("OTP", otp);
     console.log("Result", result);
@@ -220,87 +212,89 @@ exports.sendotp = async (req, res) => {
 };
 
 exports.changePassword = async (req, res) => {
-    try{
+  try {
+    const userDetails = await Student.findOne(req.user.body);
 
-        const userDetails = await Student.findOne(req.user.body);
+    const { oldPassword, newPassword, confirmNewPassword } = req.body;
 
-        const { oldPassword, newPassword, confirmNewPassword } = req.body;
+    const isPasswordMatch = await bcrypt.compare(
+      oldPassword,
+      userDetails.password
+    );
 
-        const isPasswordMatch = await bcrypt.compare(oldPassword, userDetails.password);
-
-        if(!isPasswordMatch){
-          return res.status(401).json({
-            success : false,
-            message : "old password doesn't match"
-          })
-        }
-
-        if(newPassword !== confirmNewPassword){
-          return res.status(401).json({
-            success : false,
-            message : "New Password & Confirm New Password doesn't match"
-          })
-        }
-
-        const encryptedPassword = await bcrypt.hash(newPassword, 10);
-
-        const updatedUserDetails = await Student.findByIdAndUpdate(req.user.id, { password : encryptedPassword }, { new : true });
-
-        try{
-          const emailResponse = await mailSender(
-            updatedUserDetails.email, `Password Updated Successfully`, 
-            passwordUpdated(
-              updatedUserDetails.email, `${updatedUserDetails.firstName} ${updatedUserDetails.lastName}`
-            )
-          );
-
-              console.log("Email sent successfully:", emailResponse.response);
-        }
-        catch(error){
-            console.error("Error occurred while sending email:", error);
-            return res.status(500).json({
-              success : false,
-              message : "Error occurred while sending email",
-              error : error.message
-            });
-        }
-
-        return res.status(200).json({
-          success : true,
-          message : "Password Updated Succesfully"
-        })
-
-
-    }   
-    catch(err){ 
-        console.log("Error occurred while updating password:", err);
-        return res.status(500).json({
-          success : false,
-          message : "Error occurred while updating password",
-          error : err.message
-        })
+    if (!isPasswordMatch) {
+      return res.status(401).json({
+        success: false,
+        message: "old password doesn't match",
+      });
     }
+
+    if (newPassword !== confirmNewPassword) {
+      return res.status(401).json({
+        success: false,
+        message: "New Password & Confirm New Password doesn't match",
+      });
+    }
+
+    const encryptedPassword = await bcrypt.hash(newPassword, 10);
+
+    const updatedUserDetails = await Student.findByIdAndUpdate(
+      req.user.id,
+      { password: encryptedPassword },
+      { new: true }
+    );
+
+    try {
+      const emailResponse = await mailSender(
+        updatedUserDetails.email,
+        `Password Updated Successfully`,
+        passwordUpdated(
+          updatedUserDetails.email,
+          `${updatedUserDetails.firstName} ${updatedUserDetails.lastName}`
+        )
+      );
+
+      console.log("Email sent successfully:", emailResponse.response);
+    } catch (error) {
+      console.error("Error occurred while sending email:", error);
+      return res.status(500).json({
+        success: false,
+        message: "Error occurred while sending email",
+        error: error.message,
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Password Updated Succesfully",
+    });
+  } catch (err) {
+    console.log("Error occurred while updating password:", err);
+    return res.status(500).json({
+      success: false,
+      message: "Error occurred while updating password",
+      error: err.message,
+    });
+  }
 };
 
 exports.getStudentDetails = async (req, res) => {
-  try{
-
+  try {
     const id = req.user.id;
     const user = await Student.findById(id);
     const studentProfile = await Profile.findById(user.additionalDetails);
     const PaymentDetails = await Payment.findById(user.paymentDoneDetails);
-  
+
     return res.status(200).json({
-      success : true,
-      message : "Student Details Fetched Successfully",
-      data : {
+      success: true,
+      message: "Student Details Fetched Successfully",
+      data: {
         user,
         studentProfile,
-        PaymentDetails
-      }
-    })
-  }
-  catch(error){
+        PaymentDetails,
+      },
+    });
+  } catch (error) {
     console.log(error.message);
     return res.status(500).json({
       success: false,
@@ -311,15 +305,18 @@ exports.getStudentDetails = async (req, res) => {
 
 // update Student Details Profile and Bus Pass Details
 exports.updateStudentDetails = async (req, res) => {
-  try{
-    const { firstName,lastName,year, branch, phno, address, busno } = req.body;
+  try {
+    const { firstName, lastName, year, branch, phno, address, busno } =
+      req.body;
     const email = req.user.email;
     const id = req.user.id;
 
-    const studentDetails = await Student.findOne({_id: id});
+    const studentDetails = await Student.findOne({ _id: id });
     console.log(typeof studentDetails);
 
-    const studentProfile = await Profile.findById(studentDetails.additionalDetails);
+    const studentProfile = await Profile.findById(
+      studentDetails.additionalDetails
+    );
 
     studentProfile.firstName = firstName;
     studentProfile.lastName = lastName;
@@ -332,20 +329,18 @@ exports.updateStudentDetails = async (req, res) => {
     await studentProfile.save();
 
     return res.status(200).json({
-      success : true,
-      message : "Student Details Updated Successfully",
-      data : studentProfile
+      success: true,
+      message: "Student Details Updated Successfully",
+      data: studentProfile,
     });
-  }
-  catch(error){
+  } catch (error) {
     console.log(error.message);
     return res.status(500).json({
       success: false,
       message: "Internal Server Error",
     });
   }
-}
-
+};
 
 exports.logout = async (req, res) => {
   try {
@@ -362,7 +357,3 @@ exports.logout = async (req, res) => {
     });
   }
 };
-
-
-
-
