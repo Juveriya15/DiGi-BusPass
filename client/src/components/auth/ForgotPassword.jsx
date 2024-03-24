@@ -13,25 +13,26 @@ const ForgotPassword = () => {
   axios.defaults.withCredentials = true;
   const handleSubmit = (e) => {
     const apiUrl = "http://localhost:8000/api/v1/auth/forgot-password";
+
     e.preventDefault();
-    axios
-      .post(
-        apiUrl,
-        {
-          email,
+    axios.post(
+      apiUrl,
+      {
+        email,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          "Access-Control-Allow-Origin": "*",
         },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-            "Access-Control-Allow-Origin": "*",
-          },
-          withCredentials: true,
-          body: JSON.stringify({
-            email,
-          }),
-        }
-      )
+        withCredentials: true,
+        body: JSON.stringify({
+          email,
+        }),
+      }
+    );
+    alert("Ckeck Email to Reset Your Password")
       .then((res) => {
         if (res.data.Status === "Success") {
           navigate("/login");
