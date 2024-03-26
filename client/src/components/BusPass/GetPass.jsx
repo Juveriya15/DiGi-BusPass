@@ -32,7 +32,7 @@ function GetPass() {
     phno,
     address,
     busFrom,
-    getdestination,
+    busDestination,
     validDate,
     studentId,
   } = user;
@@ -53,7 +53,7 @@ function GetPass() {
       user.branch
     ) {
       setFormNo(formNo + 1);
-    } else if (formNo === 2 && destination) {
+    } else if (formNo === 2 && stopName) {
       setFormNo(formNo + 1);
     } else if (formNo === 3) {
       setFormNo(formNo + 1);
@@ -66,22 +66,44 @@ function GetPass() {
     setFormNo(formNo - 1);
   };
 
-  const [destination, setDestination] = useState("");
-  const [totalAmount, setTotalAmount] = useState(0);
-  const handleDestination = (e) => {
-    console.log(destination);
-    const getdestinationId = e.target.value;
-    setDestination(getdestinationId);
+  //destination selection
+  const [cityid, setCityid] = useState("");
+  const [stop, setStop] = useState([]);
+  const [stopid, setStopid] = useState("");
+  const [stopAmount, setStopAmount] = useState(0);
+  const [cityName, setCityName] = useState("");
+  const [stopName, setStopName] = useState("");
 
-    const selected = busRoute.find(
-      (item) => item.destination_name === getdestinationId
+  const handlecity = (e) => {
+    const getCityid = e.target.value;
+    const selectedCity = busRoute.find((city) => city.city_id === getCityid);
+    setStop(selectedCity.stop);
+    setCityid(getCityid);
+    setCityName(selectedCity.city_name); // Set the city name
+  };
+
+  const handlestop = (e) => {
+    const getstopid = e.target.value;
+    const selectedStop = stop.find((stop) => stop.stop_amount === getstopid);
+    setStopid(getstopid);
+    setStopAmount(selectedStop.stop_amount); // Set the stop amount
+    setStopName(selectedStop.stop_name);
+    setUser({
+      ...user,
+      busDestination: selectedStop.stop_name, // Set busDestination to selected stop name
+    }); // Set the stop name
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(
+      "Get Country id: " +
+        cityid +
+        ", City Name: " +
+        cityName +
+        ", Stop Name: " +
+        stopName
     );
-
-    if (selected) {
-      // Update the selected item and total amount
-
-      setTotalAmount(selected.destination_amount);
-    }
   };
 
   const key_id = "rzp_test_gm6wW5pGrWRFjz";
@@ -93,7 +115,7 @@ function GetPass() {
       console.log(token);
       const response = await axios.post(
         "http://localhost:8000/api/v1/payment/checkout",
-        { amount: totalAmount },
+        { amount: stopAmount },
         {
           headers: {
             authorization: `${token}`,
@@ -431,12 +453,55 @@ function GetPass() {
                 <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                   <div className="sm:col-span-3">
                     <label
+                      htmlFor="busDestination"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Pickup Point
+                    </label>
+                    <div className="mt-2">
+                      <label>City</label>
+                      <select
+                        name="city"
+                        className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        onChange={(e) => handlecity(e)}
+                      >
+                        <option value="">--Select City--</option>
+                        {busRoute.map((getcity, index) => (
+                          <option value={getcity.city_id} key={index}>
+                            {getcity.city_name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="col-md-3">
+                      <label className="form-label"> Stop</label>
+                      <div className="text-dark">
+                        <select
+                          name="stop"
+                          className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          onChange={(e) => handlestop(e)}
+                        >
+                          <option value="">--Select Stop--</option>
+                          {stop.map((getstop, index) => (
+                            <option value={getstop.stop_amount} key={index}>
+                              {getstop.stop_name}
+                            </option>
+                          ))}
+                        </select>
+                        <p>Amount: {stopAmount}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="sm:col-span-3">
+                    <label
                       htmlFor="busFrom"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
-                      Bus From
+                      Droping Point
                     </label>
                     <div className="mt-2">
+                      <label>City</label>
                       <select
                         id="busFrom"
                         name="busFrom"
@@ -445,38 +510,9 @@ function GetPass() {
                         autoComplete="busFrom-name"
                         className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       >
-                        <option>DKTE Rajwada</option>
+                        <option>Ichalkaranji</option>
                       </select>
                     </div>
-                  </div>
-
-                  <div className="sm:col-span-3">
-                    <label
-                      htmlFor="busDestination"
-                      className="block text-sm font-medium leading-6 text-gray-900"
-                    >
-                      Bus Destination
-                    </label>
-                    <div className="mt-2">
-                      <select
-                        name="destination"
-                        value={destination}
-                        onChange={(e) => handleDestination(e)}
-                        className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      >
-                        <option value={destination}>Select Destination</option>
-                        {busRoute.map((getdestination, index) => (
-                          <option
-                            value={getdestination.destination_name}
-                            key={index}
-                          >
-                            {getdestination.destination_name}{" "}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <p>Total Amount: {totalAmount}</p>
                   </div>
                 </div>
               </div>
@@ -533,7 +569,7 @@ function GetPass() {
                       Bus Route
                     </dt>
                     <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                      {busFrom} to {destination}
+                      {busFrom} to {stopName},{cityName}
                     </dd>
                   </div>
                   <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -541,7 +577,7 @@ function GetPass() {
                       Total Amount
                     </dt>
                     <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                      ₹ {totalAmount}
+                      ₹ {stopAmount}
                     </dd>
                   </div>
                 </dl>

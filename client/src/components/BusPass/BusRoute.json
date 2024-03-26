@@ -1,188 +1,190 @@
- [
-   
-     {"destination_id":"01","destination_name":"Shedshal" , "destination_amount": "2000"},
-     {"destination_id":"02","destination_name":"Ganeshwadi" ,"destination_amount": "21000"},
-     {"destination_id":"03","destination_name":"Kawtheguland" ,"destination_amount": "22000"},
-     {"destination_id":"04","destination_name":"Gauravad","destination_amount": "12000"},
-     {"destination_id":"05","destination_name":"Aurwad","destination_amount": "11000"},
-     {"destination_id":"06","destination_name":" Nrisimhwadi","destination_amount": "5000"},
-     {"destination_id":"07","destination_name":"Kurundwad"},
-     {"destination_id":"08","destination_name":"Terwad"},
-     {"destination_id":"09","destination_name":"Herwad"},
-     {"destination_id":"10","destination_name":"A. Lat"},
-     {"destination_id":"11","destination_name":"Shirdwad"},
-
+[
+    {"city_id":"1","city_name":"Ganeshwadi","stop":[
+        {"stop_id":"11","stop_name":"Shedshal","stop_amount":"1000","city_id":"1"},
+        {"stop_id":"12","stop_name":"Ganeshwadi","stop_amount":"2000","city_id":"1"},
+        {"stop_id":"13","stop_name":"Gauravad","stop_amount":"2000","city_id":"1"},
+        {"stop_id":"14","stop_name":"Jawaharnagar","stop_amount":"3000","city_id":"1"},
+        {"stop_id":"15","stop_name":"Aurwad","stop_amount":"4000","city_id":"1"},
+        {"stop_id":"16","stop_name":"Narisimhwadi","stop_amount":"5000","city_id":"1"},
+        {"stop_id":"17","stop_name":"Kurundwad ","stop_amount":"6000","city_id":"1"},
+        {"stop_id":"18","stop_name":"Terwad ","stop_amount":"7000","city_id":"1"},
+        {"stop_id":"19","stop_name":"Herwad","stop_amount":"8000","city_id":"1"},
+        {"stop_id":"110","stop_name":"A. Lat","stop_amount":"1000","city_id":"1"},
+        {"stop_id":"111","stop_name":" Shirdwad","stop_amount":"1000","city_id":"1"}
+    ]},
+        
+    {"city_id":"2","city_name":"Ghalwad","stop":[
+        {"stop_id":"21","stop_name":"Ghalwad","stop_amount":"1000","city_id":"2"},
+        {"stop_id":"22","stop_name":"Arjunwad","stop_amount":"2000","city_id":"2"},
+        {"stop_id":"23","stop_name":"Shirol","stop_amount":"2000","city_id":"2"},
+        {"stop_id":"24","stop_name":"Dutt Karkhana","stop_amount":"3000","city_id":"2"},
+        {"stop_id":"25","stop_name":"J.J. Magdum College Stop","stop_amount":"4000","city_id":"2"},
+        {"stop_id":"26","stop_name":"Nandini Naka ","stop_amount":"5000","city_id":"2"},
+        {"stop_id":"27","stop_name":" Nandini ","stop_amount":"6000","city_id":"2"},
+        {"stop_id":"28","stop_name":"Haroli","stop_amount":"7000","city_id":"2"}
+    ]},
+ 
+    {"city_id":"3","city_name":"Kagal","stop":[
+        {"stop_id":"31","stop_name":"Kagal","stop_amount":"1000","city_id":"3"},
+        {"stop_id":"32","stop_name":"Mauje Sangav","stop_amount":"2000","city_id":"3"},
+        {"stop_id":"33","stop_name":"K. Sangaon","stop_amount":"2000","city_id":"3"},
+        {"stop_id":"34","stop_name":"Randivewadi","stop_amount":"3000","city_id":"3"},
+        {"stop_id":"35","stop_name":"Yalgud","stop_amount":"4000","city_id":"3"}
+    ]},
      
-     {"destination_id":"12","destination_name":"Khidrapur"},
-     {"destination_id":"13","destination_name":"Rajapurwadi"},
-     {"destination_id":"14","destination_name":"Takliwadi"},
-     {"destination_id":"15","destination_name":"Sainik Takli"},
-     {"destination_id":"16","destination_name":"Akiwat"},
-     {"destination_id":"17","destination_name":"Majrewadi"},
-     {"destination_id":"18","destination_name":"Kurundwad"},
-     {"destination_id":"19","destination_name":"Shirdhon"},
-     {"destination_id":"20","destination_name":"Takwade"},
-
-
-     {"destination_id":"21","destination_name":"Sulkood "},
-     {"destination_id":"22","destination_name":"K. Sangaon"},
-     {"destination_id":"23","destination_name":"Silver Zone"},
-     {"destination_id":"24","destination_name":" Hoopri "},
-     {"destination_id":"25","destination_name":"Rendal"},
-     {"destination_id":"26","destination_name":"Rangoli"},
-
-
-     {"destination_id":"27","destination_name":"Unchgaon"},
-     {"destination_id":"28","destination_name":"Maner Mala "},
-     {"destination_id":"29","destination_name":"Mudshingi"},
-     {"destination_id":"30","destination_name":"Abhishek Mill"},
-     {"destination_id":"31","destination_name":"Sangwade Phata"},
-     {"destination_id":"32","destination_name":"Pattankodoli"},
-     {"destination_id":"33","destination_name":"Ingli"},
-     {"destination_id":"34","destination_name":"Rui"},
-     {"destination_id":"35","destination_name":"Kabanur"},
-     {"destination_id":"36","destination_name":"ASC College"},
-
-  
-     {"destination_id":"37","destination_name":" Kagal"},
-     {"destination_id":"38","destination_name":"Mauje Sangav"},
-     {"destination_id":"39","destination_name":"K. Sangaon"},
-     {"destination_id":"40","destination_name":"Randivewadi"},
-     {"destination_id":"41","destination_name":" Yalgud"},
-
-     
-
-     {"destination_id":"42","destination_name":"Kalamba"},
-     {"destination_id":"43","destination_name":"Saneguruji Vasahat"},
-     {"destination_id":"44","destination_name":"Sambhajinagar"},
-     {"destination_id":"45","destination_name":"Jawaharnagar"},
-     {"destination_id":"46","destination_name":"SSC Board"},
-     {"destination_id":"47","destination_name":"Sciber Chowk "},
-     {"destination_id":"48","destination_name":"Rajarampuri"},
-     {"destination_id":"49","destination_name":"Halondi "},
-     {"destination_id":"50","destination_name":"Herle"},
-     {"destination_id":"51","destination_name":"Chokak"},
-     {"destination_id":"52","destination_name":"Mangaon"},
-
-     
-
-     {"destination_id":"53","destination_name":"Gangavesh"},
-     {"destination_id":"54","destination_name":" Gokul Hotel"},
-     {"destination_id":"55","destination_name":"Panchshil Hotel"},
-     {"destination_id":"56","destination_name":"Ruiker Colony"},
-     {"destination_id":"57","destination_name":"Mukt Sainik "},
-     {"destination_id":"58","destination_name":"Market Yard"},
-     {"destination_id":"59","destination_name":"Tawde Hotel"},
-     {"destination_id":"60","destination_name":"Shiroli Phata"},
-     {"destination_id":"61","destination_name":"Herle"},
-     {"destination_id":"62","destination_name":"Mangaon Phata"},
-     {"destination_id":"63","destination_name":"Sajani"},
-     {"destination_id":"64","destination_name":"Kabanur"},
-
-   
-     {"destination_id":"65","destination_name":"Kodoli "},
-     {"destination_id":"66","destination_name":"Pargaon"},
-     {"destination_id":"67","destination_name":"Chavre Phata"},
-     {"destination_id":"68","destination_name":"Vathar"},
-     {"destination_id":"69","destination_name":"Vadgaon"},
-     {"destination_id":"70","destination_name":" Narande Phata"},
-     {"destination_id":"71","destination_name":"Chavanwadi "},
-     {"destination_id":"72","destination_name":"Alte"},
-     {"destination_id":"73","destination_name":"Hatkanangle"},
-     {"destination_id":"74","destination_name":"Ganganagar"},
-     {"destination_id":"75","destination_name":"Deccan"},
-
-      
-     {"destination_id":"76","destination_name":"Udgaon"},
-     {"destination_id":"77","destination_name":" Jaisingpur Stand"},
-     {"destination_id":"78","destination_name":"Jaisingpur Court"},
-     {"destination_id":"79","destination_name":"Manisha Automobile"},
-     {"destination_id":"80","destination_name":"Sambhajipur"},
-     {"destination_id":"81","destination_name":"Sangamnagar"},
-     {"destination_id":"82","destination_name":"Sangli Naka"},
-     {"destination_id":"83","destination_name":"Big Bazaar"},
-
-      
-     {"destination_id":"84","destination_name":"Malgaon"},
-     {"destination_id":"85","destination_name":"Ganesh Colony"},
-     {"destination_id":"86","destination_name":"Subhash Nagar"},
-     {"destination_id":"87","destination_name":"Gadve Pump"},
-     {"destination_id":"88","destination_name":"Dindives"},
-     {"destination_id":"89","destination_name":"Vakhar Bhag"},
-     {"destination_id":"90","destination_name":"Miraj Market"},
-     {"destination_id":"91","destination_name":"Cancer Hospital"},
-     {"destination_id":"92","destination_name":"Honda Showroom"},
-     {"destination_id":"93","destination_name":"Walchand College"},
-     {"destination_id":"94","destination_name":"100 Foot Road"},
-     {"destination_id":"95","destination_name":"Dhamani"},
-
-     
-     {"destination_id":"96","destination_name":"Kawalapur"},
-     {"destination_id":"97","destination_name":" Budhgaon "},
-     {"destination_id":"98","destination_name":"Madhavnagar"},
-     {"destination_id":"99","destination_name":"Sakhar Karkhana"},
-     {"destination_id":"100","destination_name":"Chintamani Nagar Pool"},
-     {"destination_id":"101","destination_name":"Bypass Road"},
-     {"destination_id":"102","destination_name":"TVS Showroom"},
-     {"destination_id":"103","destination_name":"College Corner"},
-     {"destination_id":"104","destination_name":"Amrai"},
-     {"destination_id":"105","destination_name":"City Post"},
-     {"destination_id":"106","destination_name":"Shivaji Mandai"},
-     {"destination_id":"107","destination_name":"Sangli Stand"},
-     {"destination_id":"108","destination_name":"Kabade Hospital"},
+    {"city_id":"4","city_name":"Kawalapur","stop":[
+        {"stop_id":"41","stop_name":"Kawalapur ","stop_amount":"1000","city_id":"4"},
+        {"stop_id":"42","stop_name":"Budhgaon","stop_amount":"2000","city_id":"4"},
+        {"stop_id":"43","stop_name":"Madhavnagar","stop_amount":"2000","city_id":"4"},
+        {"stop_id":"44","stop_name":"Sakhar Karkhana","stop_amount":"3000","city_id":"4"},
+        {"stop_id":"45","stop_name":"Chintamani Nagar Pool","stop_amount":"4000","city_id":"1"},
+        {"stop_id":"46","stop_name":" Bypass Road","stop_amount":"5000","city_id":"4"},
+        {"stop_id":"47","stop_name":"TVS Showroom","stop_amount":"6000","city_id":"4"},
+        {"stop_id":"48","stop_name":"College Corner","stop_amount":"7000","city_id":"4"},
+        {"stop_id":"49","stop_name":"Amrai","stop_amount":"8000","city_id":"4"},
+        {"stop_id":"410","stop_name":"City Post","stop_amount":"1000","city_id":"4"},
+        {"stop_id":"411","stop_name":"Shivaji Mandai","stop_amount":"1000","city_id":"4"},
+        {"stop_id":"412","stop_name":"Sangli Stand","stop_amount":"1000","city_id":"4"},
+        {"stop_id":"413","stop_name":"Kabade Hospital","stop_amount":"1000","city_id":"4"},
+        {"stop_id":"414","stop_name":" 100 Foot Road","stop_amount":"1000","city_id":"4"}
+    ]},
     
+    {"city_id":"5","city_name":"Khidrapur","stop":[
+        {"stop_id":"51","stop_name":"Khidrapur ","stop_amount":"1000","city_id":"5"},
+        {"stop_id":"52","stop_name":"Rajapurwadi","stop_amount":"2000","city_id":"5"},
+        {"stop_id":"53","stop_name":"Takliwadi","stop_amount":"2000","city_id":"5"},
+        {"stop_id":"54","stop_name":"Sainik Takli","stop_amount":"3000","city_id":"5"},
+        {"stop_id":"55","stop_name":"Akiwat","stop_amount":"4000","city_id":"5"},
+        {"stop_id":"56","stop_name":" Majrewadi","stop_amount":"5000","city_id":"5"},
+        {"stop_id":"57","stop_name":"Kurundwad","stop_amount":"6000","city_id":"5"},
+        {"stop_id":"58","stop_name":"Shirdhon","stop_amount":"7000","city_id":"5"},
+        {"stop_id":"59","stop_name":"Takwade","stop_amount":"8000","city_id":"5"}
+    ]},
 
-      
-     {"destination_id":"109","destination_name":"Ramkrishna Nagar Kupwad"},
-     {"destination_id":"110","destination_name":"Amba Chowk"},
-     {"destination_id":"111","destination_name":"Chinmay Park"},
-     {"destination_id":"112","destination_name":"Sachin Jewelers"},
-     {"destination_id":"113","destination_name":"Laxmi Mandir"},
-     {"destination_id":"114","destination_name":"Lovely Circle"},
-     {"destination_id":"115","destination_name":"Bata Showroom"},
-     {"destination_id":"116","destination_name":"Dhamani Phata "},
-     {"destination_id":"117","destination_name":"D Mart"},
-     {"destination_id":"118","destination_name":"Kolhapur Road"},
+    {"city_id":"6","city_name":"Kolhapur","stop":[
+     {"stop_id":"61","stop_name":"Kalamba ","stop_amount":"1000","city_id":"1"},
+     {"stop_id":"62","stop_name":"Saneguruji Vasahat","stop_amount":"2000","city_id":"6"},
+     {"stop_id":"63","stop_name":"Sambhajinagar","stop_amount":"2000","city_id":"6"},
+     {"stop_id":"64","stop_name":"Jawaharnagar","stop_amount":"3000","city_id":"6"},
+     {"stop_id":"65","stop_name":"SSC Board","stop_amount":"4000","city_id":"6"},
+     {"stop_id":"66","stop_name":"Cyber Chowk","stop_amount":"5000","city_id":"6"},
+     {"stop_id":"67","stop_name":"Rajarampuri","stop_amount":"6000","city_id":"6"},
+     {"stop_id":"68","stop_name":"Halondi","stop_amount":"7000","city_id":"6"},
+     {"stop_id":"69","stop_name":"Herle","stop_amount":"8000","city_id":"6"},
+     {"stop_id":"610","stop_name":"Chokak","stop_amount":"1000","city_id":"6"},
+     {"stop_id":"611","stop_name":" Mangaon","stop_amount":"1000","city_id":"6"},
+     {"stop_id":"612","stop_name":" Gangaves","stop_amount":"1000","city_id":"6"},
+     {"stop_id":"613","stop_name":"Gokul Hotel","stop_amount":"1000","city_id":"6"},
+     {"stop_id":"614","stop_name":"Panchshil Hotel","stop_amount":"1000","city_id":"6"},
+     {"stop_id":"615","stop_name":"Ruiker Colony","stop_amount":"1000","city_id":"6"},
+     {"stop_id":"616","stop_name":"Mukt Sainik","stop_amount":"1000","city_id":"6"},
+     {"stop_id":"617","stop_name":"Market Yard","stop_amount":"1000","city_id":"6"},
+     {"stop_id":"618","stop_name":"Tawde Hotel","stop_amount":"1000","city_id":"6"},
+     {"stop_id":"619","stop_name":"Shiroli Phata","stop_amount":"1000","city_id":"6"},
+     {"stop_id":"620","stop_name":" Kabanur","stop_amount":"1000","city_id":"6"}
+    ]},
 
-     
-     {"destination_id":"119","destination_name":"Kupwad"},
-     {"destination_id":"120","destination_name":"Sut Girani"},
-     {"destination_id":"121","destination_name":"Laxmi Mandir"},
-     {"destination_id":"122","destination_name":"Bata Showroom"},
-     {"destination_id":"123","destination_name":"Sangli Civil"},
-     {"destination_id":"124","destination_name":"Chipri Phata"},
-
-      
-     {"destination_id":"125","destination_name":"Mhaisaal Boundry"},
-     {"destination_id":"126","destination_name":"Mhaisaal"},
-     {"destination_id":"127","destination_name":" Vaddi"},
-     {"destination_id":"128","destination_name":"Nadives Naka"},
-     {"destination_id":"129","destination_name":"Miraj Stand"},
-     {"destination_id":"130","destination_name":"Sphurti Chowk"},
-     {"destination_id":"131","destination_name":"Limaye Mala"},
-     {"destination_id":"132","destination_name":"Dhamani"},
-     {"destination_id":"133","destination_name":"Ankli"},
-
-  
-     {"destination_id":"134","destination_name":"   Mission Hospital"},
-     {"destination_id":"135","destination_name":"Vijayanagar"},
-     {"destination_id":"136","destination_name":"Vishrambagh"},
-     {"destination_id":"137","destination_name":" Pushkaraj Chowk"},
-     {"destination_id":"138","destination_name":"Civil Hospital"},
-     {"destination_id":"139","destination_name":"Aakashvani"},
-     {"destination_id":"140","destination_name":"Bansi Tire"},
-     {"destination_id":"141","destination_name":"Tata Showroom"},
-
-   
-     {"destination_id":"142","destination_name":"Ghalwad "},
-     {"destination_id":"143","destination_name":"Arjunwad"},
-     {"destination_id":"144","destination_name":"Shirol"},
-     {"destination_id":"145","destination_name":"Dutt Karkhana"},
-     {"destination_id":"146","destination_name":"J.J. Magdum College Stop"},
-     {"destination_id":"147","destination_name":"Nandini Naka"},
-     {"destination_id":"148","destination_name":"Nandini"},
-     {"destination_id":"149","destination_name":"Haroli"}
-
-
+    {"city_id":"7","city_name":"Kodoli","stop":[
+        {"stop_id":"71","stop_name":"Kodoli ","stop_amount":"1000","city_id":"7"},
+        {"stop_id":"72","stop_name":"Pargaon","stop_amount":"2000","city_id":"7"},
+        {"stop_id":"73","stop_name":"Chavre Phata","stop_amount":"2000","city_id":"7"},
+        {"stop_id":"74","stop_name":"Vathar","stop_amount":"3000","city_id":"7"},
+        {"stop_id":"75","stop_name":"Vadgaon","stop_amount":"4000","city_id":"7"},
+        {"stop_id":"76","stop_name":" Narande Phata","stop_amount":"5000","city_id":"7"},
+        {"stop_id":"77","stop_name":"Chavanwadi","stop_amount":"6000","city_id":"7"},
+        {"stop_id":"78","stop_name":"Alte","stop_amount":"7000","city_id":"7"},
+        {"stop_id":"79","stop_name":"Hatkanangle","stop_amount":"8000","city_id":"7"},
+        {"stop_id":"710","stop_name":" Ganganagar","stop_amount":"1000","city_id":"7"},
+        {"stop_id":"711","stop_name":" Deccan","stop_amount":"1000","city_id":"7"}
+    ]},
     
+    {"city_id":"8","city_name":"Kupwad","stop":[
+        {"stop_id":"81","stop_name":"Ramkrishna Nagar","stop_amount":"1000","city_id":"8"},
+        {"stop_id":"82","stop_name":"Amba Chowk ","stop_amount":"2000","city_id":"8"},
+        {"stop_id":"83","stop_name":"Chinmay Park","stop_amount":"2000","city_id":"8"},
+        {"stop_id":"84","stop_name":"Sachin Jewelers","stop_amount":"3000","city_id":"8"},
+        {"stop_id":"85","stop_name":"Laxmi Mandir","stop_amount":"4000","city_id":"8"},
+        {"stop_id":"86","stop_name":"Lovely Circle","stop_amount":"5000","city_id":"8"},
+        {"stop_id":"87","stop_name":" Bata Showroom","stop_amount":"6000","city_id":"8"},
+        {"stop_id":"88","stop_name":"100 Foot Road","stop_amount":"7000","city_id":"8"},
+        {"stop_id":"89","stop_name":"Dhamani Phata","stop_amount":"8000","city_id":"8"},
+        {"stop_id":"810","stop_name":"D Mart","stop_amount":"1000","city_id":"8"},
+        {"stop_id":"811","stop_name":"Kolhapur Road","stop_amount":"1000","city_id":"8"},
+        {"stop_id":"812","stop_name":"Sut Girani","stop_amount":"1000","city_id":"8"},
+        {"stop_id":"813","stop_name":"Sangli Civil","stop_amount":"1000","city_id":"8"},
+        {"stop_id":"814","stop_name":"Sangli Stand","stop_amount":"1000","city_id":"8"},
+        {"stop_id":"815","stop_name":"Chipri Phata","stop_amount":"1000","city_id":"8"}
+    ]},
+     
+    {"city_id":"9","city_name":"Malgaon","stop":[
+        {"stop_id":"91","stop_name":"Malgaon","stop_amount":"1000","city_id":"9"},
+        {"stop_id":"92","stop_name":"Ganesh Colony","stop_amount":"2000","city_id":"9"},
+        {"stop_id":"93","stop_name":"Subhash Nagar","stop_amount":"2000","city_id":"9"},
+        {"stop_id":"94","stop_name":"Gadve Pump","stop_amount":"3000","city_id":"9"},
+        {"stop_id":"95","stop_name":"Dindives","stop_amount":"4000","city_id":"9"},
+        {"stop_id":"96","stop_name":"Vakhar Bhag","stop_amount":"5000","city_id":"9"},
+        {"stop_id":"97","stop_name":"Miraj Market","stop_amount":"6000","city_id":"9"},
+        {"stop_id":"98","stop_name":"Cancer Hospital","stop_amount":"7000","city_id":"9"},
+        {"stop_id":"99","stop_name":"Honda Showroom","stop_amount":"8000","city_id":"9"},
+        {"stop_id":"910","stop_name":"Walchand College","stop_amount":"1000","city_id":"9"},
+        {"stop_id":"911","stop_name":"100 Foot Road","stop_amount":"1000","city_id":"9"},
+        {"stop_id":"912","stop_name":" Dhamani","stop_amount":"1000","city_id":"9"}
+    ]},
+
+    {"city_id":"10","city_name":"Mhaisaal","stop":[
+        {"stop_id":"101","stop_name":"Mhaisaal Boundry","stop_amount":"1000","city_id":"10"},
+        {"stop_id":"102","stop_name":"Mhaisaal","stop_amount":"2000","city_id":"10"},
+        {"stop_id":"103","stop_name":"Vaddi","stop_amount":"2000","city_id":"10"},
+        {"stop_id":"104","stop_name":"Nadives Naka","stop_amount":"3000","city_id":"10"},
+        {"stop_id":"105","stop_name":"Miraj Stand","stop_amount":"4000","city_id":"10"},
+        {"stop_id":"106","stop_name":"Mission Hospital","stop_amount":"5000","city_id":"10"},
+        {"stop_id":"107","stop_name":"Sphurti Chowk","stop_amount":"6000","city_id":"10"},
+        {"stop_id":"108","stop_name":"Limaye Mala","stop_amount":"7000","city_id":"10"},
+        {"stop_id":"109","stop_name":"Dhamani","stop_amount":"8000","city_id":"10"},
+        {"stop_id":"1010","stop_name":"Ankli","stop_amount":"1000","city_id":"10"}
+    ]},
+   
+    {"city_id":"11","city_name":"Miraj","stop":[
+        {"stop_id":"111","stop_name":"Mission Hospital","stop_amount":"1000","city_id":"11"},
+        {"stop_id":"112","stop_name":"Vijayanagar","stop_amount":"2000","city_id":"11"},
+        {"stop_id":"113","stop_name":"Vishrambagh","stop_amount":"2000","city_id":"11"},
+        {"stop_id":"114","stop_name":"Pushkaraj Chowk","stop_amount":"3000","city_id":"11"},
+        {"stop_id":"115","stop_name":"Civil Hospital","stop_amount":"4000","city_id":"11"},
+        {"stop_id":"116","stop_name":"Aakashvani","stop_amount":"5000","city_id":"11"},
+        {"stop_id":"117","stop_name":"Bansi Tire","stop_amount":"6000","city_id":"11"},
+        {"stop_id":"118","stop_name":"Tata Showroom","stop_amount":"7000","city_id":"11"}
+    ]},
+    
+    {"city_id":"12","city_name":" Sulkood","stop":[
+        {"stop_id":"121","stop_name":" Sulkood","stop_amount":"1000","city_id":"12"},
+        {"stop_id":"122","stop_name":"K. Sangaon ","stop_amount":"2000","city_id":"12"},
+        {"stop_id":"123","stop_name":"Silver Zone","stop_amount":"2000","city_id":"12"},
+        {"stop_id":"124","stop_name":"Hoopri","stop_amount":"3000","city_id":"12"},
+        {"stop_id":"125","stop_name":"Rendal","stop_amount":"4000","city_id":"12"},
+        {"stop_id":"126","stop_name":"Rangoli ","stop_amount":"5000","city_id":"12"}
+    ]},
+   
+    {"city_id":"13","city_name":" Udgaon","stop":[
+        {"stop_id":"131","stop_name":" Udgaon","stop_amount":"1000","city_id":"13"},
+        {"stop_id":"132","stop_name":"Jaisingpur Stand ","stop_amount":"2000","city_id":"13"},
+        {"stop_id":"133","stop_name":"Jaisingpur Court","stop_amount":"2000","city_id":"13"},
+        {"stop_id":"134","stop_name":"Manisha Automobile","stop_amount":"3000","city_id":"13"},
+        {"stop_id":"135","stop_name":"Sambhajipur","stop_amount":"4000","city_id":"13"},
+        {"stop_id":"136","stop_name":"Sangamnagar","stop_amount":"5000","city_id":"13"},
+        {"stop_id":"137","stop_name":"Sangli Naka","stop_amount":"6000","city_id":"13"},
+        {"stop_id":"138","stop_name":"Big Bazaar","stop_amount":"7000","city_id":"13"}
+    ]},
+     
+    {"city_id":"14","city_name":"Unchgaon","stop":[
+        {"stop_id":"141","stop_name":"Unchgaon","stop_amount":"1000","city_id":"14"},
+        {"stop_id":"142","stop_name":"Maner Mala","stop_amount":"2000","city_id":"14"},
+        {"stop_id":"143","stop_name":"Mudshingi","stop_amount":"2000","city_id":"14"},
+        {"stop_id":"144","stop_name":"Abhishek Mill","stop_amount":"3000","city_id":"14"},
+        {"stop_id":"145","stop_name":"Sangwade Phata","stop_amount":"4000","city_id":"14"},
+        {"stop_id":"146","stop_name":"Pattankodoli","stop_amount":"5000","city_id":"14"},
+        {"stop_id":"147","stop_name":"Ingli","stop_amount":"6000","city_id":"14"},
+        {"stop_id":"148","stop_name":"Rui","stop_amount":"7000","city_id":"14"},
+        {"stop_id":"149","stop_name":"Kabanur","stop_amount":"8000","city_id":"14"},
+        {"stop_id":"1410","stop_name":"ASC College","stop_amount":"1000","city_id":"14"}
+    ]}
 ]
